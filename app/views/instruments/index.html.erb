@@ -4,4 +4,6 @@
   <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %></li>
 <% end %>
 <br>
-<%= link_to "Add new instrument >", new_instrument_path %>
+<% if user_signed_in? %>
+  <%= link_to "Add new instrument >", new_instrument_path %>
+<% end %>

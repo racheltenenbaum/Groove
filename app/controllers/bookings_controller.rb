@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @bookings = Booking.all
@@ -12,10 +13,10 @@ class BookingsController < ApplicationController
   def create
     @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new(booking_params)
-    @booking.user_id = @instrument.user_id
-    @booking.instrument_id = @instrument.id
+    @booking.user_id = current_user.id
+    @booking.instrument = @instrument
     if @booking.save
-      redirect_to bookings_path, notice: "booking was successfully created."
+      redirect_to instrument_path(@instrument), notice: "booking was successfully created."
     else
       render :bookings, status: :unprocessable_entity
     end
