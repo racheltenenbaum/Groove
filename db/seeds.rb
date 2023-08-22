@@ -8,8 +8,8 @@
 
 
 
-user_one = User.create!(email: "test@test.com", password: "123456", username: "testguy")
-user_two = User.create!(email: "test1@test.com", password: "123456", username: "testguy1")
+user_one = User.create!(email: "test6@test.com", password: "123456", username: "testguy")
+user_two = User.create!(email: "test5@test.com", password: "123456", username: "testguy1")
 
 #Instruments for user_one
 guitar = Instrument.new(available_from: "1889/03/03",name: "guitar", description: "very good", brand: "bosch", city: "London", price: 300 )
@@ -33,3 +33,7 @@ smajd.save!
 
 portk.user = user_two
 portk.save!
+
+
+booking_one = Booking.create(instrument_id: 1, user_id: 1, start_date: "1990/02/02", end_date:"1991/02/02")
+booking_two  = Booking.create(instrument_id: 2, user_id: 2, start_date: "1992/02/02", end_date:"1993/02/02")
