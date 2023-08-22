@@ -13,7 +13,7 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
-    @instrument.user_id = current_user.id
+    @instrument.user = current_user
     if @instrument.save
       redirect_to instruments_path
     end
