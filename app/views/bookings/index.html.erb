@@ -4,7 +4,7 @@
   <% if current_user.id == booking.user_id %>
   <ul>
     <div class="card-product">
-      <%= cl_image_tag booking["instruments"].photo.key, height: 300, width: 400, crop: :fill %>
+      <%# <%= cl_image_tag booking["instruments"].photo.key, height: 300, width: 400, crop: :fill %> %>
         <div class="card-product-infos">
           <li><%= "Start date: #{booking.start_date}" %></li>
           <%= "End date: #{booking.end_date}" %>
