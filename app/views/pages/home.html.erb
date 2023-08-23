@@ -1,108 +1,64 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path do %>
-      <%= image_tag "logo.png", style: "width: 70px; height: auto;"%>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Instruments", instruments_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Rent Your Instruments", 'instruments/new', class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Help", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "About", "#{root_path}#cards", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "smiley_face.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My dashboard", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-        <li class="nav-item active">
-            <%= link_to "Instruments", instruments_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <a href="#about">About</a>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Help", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
 <div class="container py-5">
-  <div class="row">
+  <div class="row flex-column">
     <div class="col text-center">
-      <h1>RENT,  TUNE,  PLAY</h1>
+      <h1>RENT, TUNE, PLAY</h1>
       <p>Craft your sound and dive into the world of instruments today.</p>
     </div>
+
+
   </div>
-    <%= link_to instruments_path, class: "nav-link" do %>
-      <button class="btn btn-primary btn-center">Find Instruments</button>
-    <% end %>
 </div>
 
-  <div class="flex-container">
-    <%= image_tag "landing_page.png", alt: "instruments", id: "landing-image" %>
+<div class="col text-center">
+  <%= link_to instruments_path do %>
+    <button id="big-button" style="
+    margin-top: 30px;">Find Instruments</button>
+<% end %>
+</div>
+
+  <div style="display: flex; flex-direction: column">
+    <div>
+      <%= image_tag "landing_page.png", alt: "instruments", id: "landing-image" %>
+    </div>
+
+    <section class="intro" style="margin-top: -62px;">
+      <h1>Share Instruments</h1>
+      <p>Share the Groove</p>
+    </section>
   </div>
+  <%# <div>class="about-us"</div>
+    <h1>A little about us...</h1> %>
 
-  <section class="intro">
-    <h1>Share Instruments</h1>
-    <p>Share the Groove</p>
-  </section>
-<%# <div>class="about-us"</div>
-  <h1>A little about us...</h1> %>
-
-  <section id="about" class="cards">
-    <div class="card">
-      <div class="video-wrapper">
-        <video autoplay muted loop>
-        <source src="<%= asset_path('explore.mp4') %>" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+    <section id="about" class="cards">
+      <h1>hello</h1>
+      <div class="card">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+          <source src="<%= asset_path('explore.mp4') %>" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+        <h2>Explore</h2>
+        <p>Dive into a world of musical possibilities. Discover a wide range of instruments available for rent.</p>
       </div>
-      <h2>Explore</h2>
-      <p>Dive into a world of musical possibilities. Discover a wide range of instruments available for rent.</p>
-    </div>
 
-    <div class="card">
-      <video autoplay muted loop>
-        <source src="<%= asset_path('learn.mp4') %>" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <h2>Learn</h2>
-      <p>Master the Art of Playing. Elevate Your Skills, Immerse in Music's Joy.</p>
-    </div>
+      <div class="card">
+        <video autoplay muted loop>
+          <source src="<%= asset_path('learn.mp4') %>" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2>Learn</h2>
+        <p>Master the Art of Playing. Elevate Your Skills, Immerse in Music's Joy.</p>
+      </div>
 
-    <div class="card">
-        <%= image_tag asset_path('share.png'), alt: "Instrument Image", class: "card-image" %>
-      <h2>Share</h2>
-      <p>Rent out your instruments to fellow enthusiasts. Share the magic of music and build a thriving community of music lovers.</p>
-    </div>
-  </section>
+      <div class="card">
+          <%= image_tag asset_path('share.png'), alt: "Instrument Image", class: "card-image" %>
+        <h2>Share</h2>
+        <p>Rent out your instruments to fellow enthusiasts. Share the magic of music and build a thriving community of music lovers.</p>
+      </div>
+    </section>
 
-  <footer class="footer">
+<footer class="footer">
     <p>&copy; 2023 Groove. All rights reserved.</p>
     <div class="footer">
       <div class="footer-links">
