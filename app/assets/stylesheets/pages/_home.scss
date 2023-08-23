@@ -1,11 +1,12 @@
 // Specific CSS for your home-page
-html, body {
+body {
   height: 100%;
   margin: 0;
   padding: 0;
   background: linear-gradient(to bottom, #abe5e8, #abe5e8, white);
   // font-family: 'Roboto';
   // background: #abe5e8;
+  background-repeat: no-repeat;
 }
 
 .py-5 {
@@ -21,10 +22,17 @@ html, body {
   background-size: cover;
   height: 500px;
   width: 100%;
-  z-index: 1;
+  padding-bottom: 65px;
+  // z-index: 1 !important;
 }
 
-.btn {
+.image-test {
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+}
+
+#big-button {
   padding: 15px 20px;
   background-color: #0992c8;
   color: #fff;
@@ -35,15 +43,18 @@ html, body {
   text-align: center;
   text-decoration: none;
   font-size: 16px;
+  // z-index: ;
+  margin-top: 20px;
 
-  .btn-center {
-    display: block;
-    margin: 0 auto;
-    transition: background-color 0.3s ease-in-out;
-  }
+  // .justify-content-center {
+  //   display: block;
+  //   margin: 0 auto;
+  //   transition: background-color 0.3s ease-in-out;
+  // }
 
     &:hover {
       background-color: #01034e;
+      text-decoration: none;
   }
 }
 
@@ -58,7 +69,7 @@ html, body {
 }
 
 .about-section {
-  position: absolute;
+  // position: absolute;
   top: 100%;
   width: 100%;
   padding: 50px 0;
@@ -99,6 +110,7 @@ html, body {
 .nav-link:hover {
   color: #ff6600;
   border-bottom: 2px solid #ff6600;
+  text-decoration: none;
 }
 
 h1 {
