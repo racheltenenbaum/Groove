@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    @booking = Booking.where(current_user.id == booking.user_id)
+    @bookings = Booking.all
+    @instruments = Instrument.all
   end
 end
