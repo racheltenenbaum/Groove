@@ -5,6 +5,7 @@
 <br><%= "Brand: #{@instrument.brand}" %>
 <br><%= "Price: #{@instrument.price}" %>
 <br><%= "Available from: #{@instrument.available_from}" %>
+<%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill %>
 <br><br>
 
 
