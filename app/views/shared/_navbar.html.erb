@@ -24,9 +24,9 @@
             <%= link_to "About", "#about", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "smiley_face.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "smiley_face.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My dashboard", "#", class: "dropdown-item" %>
+              <%= link_to "My dashboard", dashboard_path, class: "dropdown-item" %>
               <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
