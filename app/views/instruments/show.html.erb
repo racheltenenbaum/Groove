@@ -11,7 +11,7 @@
 <% if current_user.id == @instrument.user_id %>
   <%= link_to "🖊️ Edit this instrument offer", edit_instrument_path %>
 <br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
-         data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
 <% else %>
   <%= link_to "Book this instrument! >", new_instrument_booking_path(@instrument.id) %>
 <% end %>
