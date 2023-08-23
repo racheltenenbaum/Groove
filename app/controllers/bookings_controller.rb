@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.instrument = @instrument
     if @booking.save
-      redirect_to instrument_path(@instrument), notice: "booking was successfully created."
+      redirect_to bookings_path, notice: "booking was successfully created."
     else
       render :bookings, status: :unprocessable_entity
     end
