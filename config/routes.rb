@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-
+  get "dashboard", to: "pages#dashboard"
   resources :instruments do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :edit, :update, :delete]
+  resources :bookings, only: [:index, :edit, :update, :destroy]
 end

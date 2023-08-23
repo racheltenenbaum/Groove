@@ -1,5 +1,5 @@
-<h1>Hello from new</h1>
-
+<h1><%= @instrument.name %></h1>
+<h3><%= "Rented out by #{@owner}" %></h3>
 <%= simple_form_for [@instrument, @booking] do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
