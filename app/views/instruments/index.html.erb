@@ -1,8 +1,16 @@
 <h1>INSTRUMENTS FOR RENT</h1>
 
 <% @instruments.each do |instrument| %>
-  <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %></li>
+<ul>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+        <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %></li>
+        </div>
+    </div>
+  </ul>
 <% end %>
+
 <br>
 <% if user_signed_in? %>
   <%= link_to "Add new instrument >", new_instrument_path %>
