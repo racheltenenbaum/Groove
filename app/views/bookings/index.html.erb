@@ -4,9 +4,10 @@
   <% if current_user.id == booking.user_id %>
   <ul>
     <div class="card-product">
-      <%# <%= cl_image_tag booking["instruments"].photo.key, height: 300, width: 400, crop: :fill %> %>
+      <%= cl_image_tag booking.instrument.photo.key, height: 300, width: 400, crop: :fill if booking.instrument.photo.attached? %>
         <div class="card-product-infos">
-          <li><%= "Start date: #{booking.start_date}" %></li>
+          <li>
+          <%= "Start date: #{booking.start_date}" %></li>
           <%= "End date: #{booking.end_date}" %>
           <br><%=link_to '🖊️ Edit booking', edit_booking_path(booking.id)%>
           <br><%=link_to '🗑️ Delete booking', booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"} %>

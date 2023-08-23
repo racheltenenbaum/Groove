@@ -4,7 +4,7 @@
 
 <ul>
     <div class="card-product">
-      <%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill if instrument.photo.attached? %>
         <div class="card-product-infos">
           <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %>
           <%= "| Offered by #{User.find(instrument.user_id).username}" %></li>
