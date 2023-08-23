@@ -1,0 +1,13 @@
+<h1>ADD A NEW INSTRUMENT</h1>
+
+<%= simple_form_for(@instrument) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :available_from %>
+  <%= f.input :description %>
+  <%= f.input :brand %>
+  <%= f.input :price %>
+  <%= f.input :city %>
+  <%= f.submit %>
+<% end %>
+<br>
+<%= link_to "Back to all instruments >", instruments_path %>

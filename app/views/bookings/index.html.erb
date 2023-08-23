@@ -1,0 +1,13 @@
+<h1>Hello from index bookings</h1>
+<h3><%= link_to "Back to home page", root_path %></h3>
+
+<% @bookings.each do |booking| %>
+  <% if current_user.id == booking.user_id %>
+    <ul>
+      <li><%= booking.start_date %></li>
+      <li><%= booking.end_date %></li>
+      <%=link_to 'Delete booking', bookings_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      <%=link_to 'Edit booking', edit_booking_path(booking.id)%>
+    </ul>
+  <% end %>
+<% end %>
