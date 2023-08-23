@@ -1,7 +1,8 @@
 <h1>INSTRUMENTS FOR RENT</h1>
-
+<%= @owner %>
 <% @instruments.each do |instrument| %>
-  <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %></li>
+  <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %>
+  <%= "| Offered by #{User.find(instrument.user_id).username}" %></li>
 <% end %>
 <br>
 <% if user_signed_in? %>
