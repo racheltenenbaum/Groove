@@ -1,6 +1,6 @@
 <h1><%= @instrument.name %></h1>
 
-
+<h3><%= "Offered by #{User.find(@instrument.user_id).username}" %></h3>
 <%= "Description: #{@instrument.description}" %>
 <br><%= "Brand: #{@instrument.brand}" %>
 <br><%= "Price: #{@instrument.price}" %>
