@@ -4,7 +4,7 @@
   <% if current_user.id == booking.user_id %>
   <ul>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag @bookings["instruments"].photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <li><%= "Start date: #{booking.start_date}" %></li>
           <%= "End date: #{booking.end_date}" %>
