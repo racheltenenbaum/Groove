@@ -12,17 +12,17 @@ Instrument.destroy_all
 User.destroy_all
 
 
-user_one = User.create!(email: "test6@test.com", password: "123456", username: "testguy")
-user_two = User.create!(email: "test5@test.com", password: "123456", username: "testguy1")
+user_one = User.create!(email: "test6@test.com", password: "123456", username: "Tim")
+user_two = User.create!(email: "test5@test.com", password: "123456", username: "Tina")
 
 #Instruments for user_one
-guitar = Instrument.create(available_from: "1889/03/03",name: "guitar", description: "very good", brand: "bosch", city: "London", price: 300, user_id: user_one.id )
-piano = Instrument.create(available_from: "1889/03/03",name: "piano", description: "very good", brand: "bosch", city: "London", price: 300, user_id: user_one.id  )
-trumpette = Instrument.create(available_from: "1889/03/03",name: "trumpette", description: "very good", brand: "bosch", city: "London", price: 300, user_id: user_one.id  )
-smajd = Instrument.create(available_from: "1889/03/03",name: "smajd", description: "very good", brand: "bosch", city: "London", price: 300, user_id: user_two.id )
-portk = Instrument.create(available_from: "1889/03/03",name: "portk", description: "very good", brand: "bosch", city: "London", price: 300, user_id: user_two.id )
+guitar = Instrument.create(available_from: "2023/04/03",name: "guitar", description: "great guitar!", brand: "Fender", city: "London", price: 300, user_id: user_one.id )
+flute = Instrument.create(available_from: "2023/10/23",name: "flute", description: "my sister's old flute. Works well.", brand: "Yamaha", city: "Rome", price: 100, user_id: user_two.id )
+piano = Instrument.create(available_from: "2023/10/05",name: "piano", description: "very well-tuned piano", brand: "Yamaha", city: "Paris", price: 500, user_id: user_one.id  )
+trumpet = Instrument.create(available_from: "2024/11/07",name: "trumpet", description: "my fave trumpet", brand: "Bach", city: "New York", price: 200, user_id: user_one.id  )
+drums = Instrument.create(available_from: "2023/08/23",name: "drums", description: "awesome drums", brand: "Ludwig", city: "Sydney", price: 150, user_id: user_two.id )
 
 
 
-booking_one = Booking.create(instrument_id: instrument.id, user_id: user.id, start_date: "1990/02/02", end_date:"1991/02/02")
-booking_two  = Booking.create(instrument_id: instrument.id, user_id: user.id, start_date: "1992/02/02", end_date:"1993/02/02")
+booking_one = Booking.create(instrument_id: guitar.id, user_id: user_two.id, start_date: "2023/02/02", end_date:"2024/02/02")
+booking_two  = Booking.create(instrument_id: drums.id, user_id: user_one.id, start_date: "2023/04/04", end_date:"2023/08/10")
