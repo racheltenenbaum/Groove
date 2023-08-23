@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
   def new
     @instrument = Instrument.find(params[:instrument_id])
     @booking = Booking.new
+    @owner = User.find(@instrument.user_id).username
   end
 
   def create
@@ -37,7 +38,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     # @list = @booking.list
     @booking.destroy
-    redirect_to booking_path(@booking), notice: "booking was successfully destroyed.", status: :see_other
+    redirect_to bookings_path, notice: "booking was successfully destroyed.", status: :see_other
   end
 
 
