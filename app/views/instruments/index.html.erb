@@ -1,7 +1,6 @@
 <h1>INSTRUMENTS FOR RENT</h1>
 <%= @owner %>
 <% @instruments.each do |instrument| %>
-
 <ul>
     <div class="card-product">
       <%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill %>
