@@ -10,30 +10,46 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Instruments", "#", class: "nav-link" %>
+            <%= link_to "Instruments", instruments_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Rent Your Instruments", "#", class: "nav-link" %>
+            <%= link_to "Rent Your Instruments", 'instruments/new', class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Help", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to "About", "#", class: "nav-link" %>
+            <%= link_to "About", "#{root_path}#cards", class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "smiley_face.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My dashboard", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
+        <% else %>
+        <li class="nav-item active">
+            <%= link_to "Instruments", instruments_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a href="#about">About</a>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Help", "#", class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </div>
+
 
 <div class="container py-5">
   <div class="row">
@@ -42,7 +58,9 @@
       <p>Craft your sound and dive into the world of instruments today.</p>
     </div>
   </div>
-    <button class="btn btn-primary btn-center">Find Instruments</button>
+    <%= link_to instruments_path, class: "nav-link" do %>
+      <button class="btn btn-primary btn-center">Find Instruments</button>
+    <% end %>
 </div>
 
   <div class="flex-container">
@@ -56,7 +74,7 @@
 <%# <div>class="about-us"</div>
   <h1>A little about us...</h1> %>
 
-  <section class="cards">
+  <section id="about" class="cards">
     <div class="card">
       <div class="video-wrapper">
         <video autoplay muted loop>
