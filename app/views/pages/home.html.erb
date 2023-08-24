@@ -1,2 +1,72 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container py-5">
+  <div class="row flex-column">
+    <div class="col text-center">
+      <h1>RENT, TUNE, PLAY</h1>
+      <p>Craft your sound and dive into the world of instruments today.</p>
+    </div>
+  </div>
+</div>
+
+<div class="col text-center">
+  <%= link_to instruments_path do %>
+    <button id="big-button" style="
+    margin-top: 30px;">Find Instruments</button>
+<% end %>
+</div>
+
+<div style="display: flex; flex-direction: column">
+  <div>
+    <%= image_tag "landing_page.png", alt: "instruments", id: "landing-image" %>
+  </div>
+
+  <section class="intro" style="margin-top: -62px;">
+    <h1>Share Instruments</h1>
+    <p>Share the Groove</p>
+  </section>
+</div>
+  <%# <div>class="about-us"</div>
+    <h1>A little about us...</h1> %>
+
+    <section id="about" class="cards">
+      <h1>ABOUT US</h1>
+      <div class="card">
+        <div class="video-wrapper">
+          <video autoplay muted loop>
+          <source src="<%= asset_path('explore.mp4') %>" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </div>
+        <h2>Explore</h2>
+        <p>Dive into a world of musical possibilities. Discover a wide range of instruments available for rent.</p>
+      </div>
+
+      <div class="card">
+        <video autoplay muted loop>
+          <source src="<%= asset_path('learn.mp4') %>" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <h2>Learn</h2>
+        <p>Master the Art of Playing. Elevate Your Skills, Immerse in Music's Joy.</p>
+      </div>
+
+      <div class="card">
+          <%= image_tag asset_path('share.png'), alt: "Instrument Image", class: "card-image" %>
+        <h2>Share</h2>
+        <p>Rent out your instruments to fellow enthusiasts. Share the magic of music and build a thriving community of music lovers.</p>
+      </div>
+    </section>
+
+<footer class="footer">
+    <p>&copy; 2023 Groove. All rights reserved.</p>
+    <p> This app was created with the help of the wonderful Le Wagon London TA's.</p>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+</footer>

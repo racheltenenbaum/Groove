@@ -1,0 +1,22 @@
+<h1>INSTRUMENTS FOR RENT</h1>
+<%= @owner %>
+<div class="container">
+  <div class="i-cards d-flex flex-row flex-wrap">
+    <% @instruments.each do |instrument| %>
+
+    <ul>
+        <div class="card-product d-flex flex-column">
+          <%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill if instrument.photo.attached? %>
+            <div class="card-product-infos">
+              <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %>
+              <%= "| Offered by #{User.find(instrument.user_id).username}" %></li>
+            </div>
+        </div>
+    </ul>
+    <% end %>
+  </div>
+</div>
+<br>
+<% if user_signed_in? %>
+  <%= link_to "Add new instrument >", new_instrument_path %>
+<% end %>
