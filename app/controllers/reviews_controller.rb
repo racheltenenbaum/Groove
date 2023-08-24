@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_instrument, only: [:create, :new]
+
   def show
     @review = Review.find(params[:id])
   end
@@ -12,15 +13,11 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  def edit
-     @instrument = Instrument.find(params[:instrument_id])
-     @review = Review.find(params[:id])
-  end
-
   def create
     @review = Review.new(review_params)
     @review.instrument_id = @instrument.id
     @review.user_id = current_user.id
+    raise
     if @review.save
       # flash[:notice] = 'Review was successfully created.'
       redirect_to instrument_reviews_path

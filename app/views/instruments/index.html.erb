@@ -23,8 +23,8 @@
           <p>Offered by <%= User.find(instrument.user_id).username %>
           <br>Price: $<%= instrument.price %>
           <br>Details: <%= instrument.description %></p>
-          <div>⭐️</div>
         </div>
+    <% end %>
     <% end %>
   </div>
 </div>
@@ -40,4 +40,6 @@
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
 </div>
-
+<section id="content">
+  <%= button_tag "Show Map", id: "showMapButton", class: "btn btn-primary" %>
+</section>
