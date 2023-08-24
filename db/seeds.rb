@@ -10,7 +10,7 @@ require "open-uri"
 Booking.destroy_all
 Instrument.destroy_all
 User.destroy_all
-  
+
 
 trumpet_pic = URI.open("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRskG3v-eHd6RStjme8qrHVYWaIDk149IE7eDSJhG6M3gyBgi7ImkhaKQ9evW7UjxsqBg&usqp=CAU.jpg")
 
@@ -33,4 +33,3 @@ drums.photo.attach(io: trumpet_pic, filename: "nes.png", content_type: "image/pn
 
 booking_one = Booking.create(instrument_id: guitar.id, user_id: user_two.id, start_date: "2023/02/02", end_date:"2024/02/02")
 booking_two  = Booking.create(instrument_id: drums.id, user_id: user_one.id, start_date: "2023/04/04", end_date:"2023/08/10")
-

@@ -1,6 +1,31 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.all
+
+    if params[:query].present?
+      @instruments = Instrument.search_by_name_and_description(params[:query])
+
+      @markers = @instruments.geocoded.map do |instrument|
+        {
+          lat: instrument.latitude,
+          lng: instrument.longitude,
+          # info_window: "<h1>hello</h1>"
+          info_window: render_to_string(partial: "info_window", locals: { instrument: instrument} )
+          marker_html: render_to_string(partial: "marker", locals: { instrument: instrument})
+        }
+      end
+    else
+      @instruments = Instrument.all
+      @markers = @instruments.geocoded.map do |instrument|
+        {
+          lat: instrument.latitude,
+          lng: instrument.longitude,
+          info_window: render_to_string(partial: "/instruments/info_window", locals: { instrument: instrument} )
+          marker_html: render_to_string(partial: "marker", locals: { instrument: instrument})
+        }
+
+      end
+
+    end
   end
 
   def show

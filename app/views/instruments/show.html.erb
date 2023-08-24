@@ -18,3 +18,11 @@
 <% end %>
 <br><br><br><%= link_to "Back to all instruments on offer >", instruments_path, class: "btn-main-back" %>
 <br>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @instrument.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
