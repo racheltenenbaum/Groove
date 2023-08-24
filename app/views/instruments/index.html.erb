@@ -1,6 +1,18 @@
 <h1>INSTRUMENTS FOR RENT</h1>
 <%= @owner %>
 <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8 my-3">
+      <%= form_with url: instruments_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @instruments.each do |instrument| %>
       <%= link_to instrument_path(instrument.id), class: "t-none" do %>
@@ -10,8 +22,8 @@
           <p>Offered by <%= User.find(instrument.user_id).username %>
           <br>Price: $<%= instrument.price %>
           <br>Details: <%= instrument.description %></p>
+          <div>⭐️</div>
         </div>
-      <% end %>
     <% end %>
   </div>
 </div>
@@ -19,4 +31,4 @@
 <% if user_signed_in? %>
   <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
 <% end %>
-<br>
+
