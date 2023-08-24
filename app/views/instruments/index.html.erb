@@ -22,8 +22,10 @@
             <div class="card-product-infos">
               <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %>
               <%= "| Offered by #{User.find(instrument.user_id).username}" %></li>
+              <div>⭐️</div>
             </div>
         </div>
+
     </ul>
     <% end %>
   </div>
@@ -32,3 +34,4 @@
 <% if user_signed_in? %>
   <%= link_to "Add new instrument >", new_instrument_path %>
 <% end %>
+
