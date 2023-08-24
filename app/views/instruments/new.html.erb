@@ -2,7 +2,9 @@
 
 <%= simple_form_for(@instrument) do |f| %>
   <%= f.input :name %>
-  <%= f.input :available_from %>
+  <%= f.input :available_from,
+               as: :string,
+              input_html: { data: { controller: "datepicker" } }%>
   <%= f.input :description %>
   <%= f.input :brand %>
   <%= f.input :price %>
