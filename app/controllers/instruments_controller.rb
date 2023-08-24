@@ -9,8 +9,8 @@ class InstrumentsController < ApplicationController
           lat: instrument.latitude,
           lng: instrument.longitude,
           # info_window: "<h1>hello</h1>"
-          info_window: render_to_string(partial: "info_window", locals: { instrument: instrument} )
-          marker_html: render_to_string(partial: "marker", locals: { instrument: instrument})
+          info_window: render_to_string(partial: "info_window", locals: { instrument: instrument} ),
+          marker_html: render_to_string(partial: "marker")
         }
       end
     else
@@ -19,12 +19,10 @@ class InstrumentsController < ApplicationController
         {
           lat: instrument.latitude,
           lng: instrument.longitude,
-          info_window: render_to_string(partial: "/instruments/info_window", locals: { instrument: instrument} )
-          marker_html: render_to_string(partial: "marker", locals: { instrument: instrument})
+          info_window: render_to_string(partial: "/instruments/info_window", locals: { instrument: instrument} ),
+          marker_html: render_to_string(partial: "marker")
         }
-
       end
-
     end
   end
 
