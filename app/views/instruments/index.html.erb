@@ -22,8 +22,10 @@
             <div class="card-product-infos">
               <li><%= link_to "#{instrument.name}", instrument_path(instrument.id) %>
               <%= "| Offered by #{User.find(instrument.user_id).username}" %></li>
+              <div>⭐️</div>
             </div>
         </div>
+
     </ul>
     <% end %>
   </div>
@@ -33,9 +35,11 @@
   <%= link_to "Add new instrument >", new_instrument_path %>
 <% end %>
 
+
 <div style='width: 400px; height: 300px;'
   data-controller="map"
   id='map'
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
-  </div>
+</div>
+

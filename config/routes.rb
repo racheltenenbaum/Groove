@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   get "dashboard", to: "pages#dashboard"
   resources :instruments do
+    resources :reviews, only: [:new, :create, :index, :show]
     resources :bookings, only: [:new, :create]
   end
 
   resources :bookings, only: [:index, :edit, :update, :destroy]
 end
+
+
