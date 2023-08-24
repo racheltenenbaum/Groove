@@ -7,6 +7,7 @@ class InstrumentsController < ApplicationController
           lat: instrument.latitude,
           lng: instrument.longitude
         }
+      end
     else
       @instruments = Instrument.all
 
@@ -15,6 +16,7 @@ class InstrumentsController < ApplicationController
           lat: instrument.latitude,
           lng: instrument.longitude
         }
+      end
     end
   end
 
