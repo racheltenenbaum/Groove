@@ -32,3 +32,11 @@
   <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
 <% end %>
 
+
+<div style='width: 400px; height: 300px;'
+  data-controller="map"
+  id='map'
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+</div>
+
