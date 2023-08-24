@@ -10,15 +10,15 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+  margin: 12px;
   padding: 20px;
   width: 300px;
-  height: 450px;
+  height: auto;
   transition: all .2s ease-in-out;
   overflow: hidden;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
   }
 
   h4 {
@@ -30,7 +30,7 @@
   }
 
   p {
-    font-size: 20px;
+    font-size: 18px;
     overflow: hidden;
     color: black;
     line-height: 30px;
@@ -38,10 +38,11 @@
 
   img {
     margin: 0;
-    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     object-fit: cover;
     height: fit-content;
+    margin-bottom: 15px;
   }
 
 }
@@ -52,14 +53,14 @@
 
 .edit-booking {
   text-decoration: none;
-  background-color: rgb(255, 146, 3);
+  background-color: #ff6600;
   padding: 10px 15px;
   margin-bottom: 20px;
   border-radius: 30px;
   color: white;
 
   &:hover {
-    background-color: rgb(255, 196, 86);
+    background-color: #ff7d26;
     color: black;
   }
 }
