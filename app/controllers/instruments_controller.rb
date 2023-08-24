@@ -1,12 +1,20 @@
 class InstrumentsController < ApplicationController
   def index
-    @instruments = Instrument.all
+    if params[:query].present?
+      @instruments = Instrument.search_by_name_and_description(params[:query])
+      @markers = @instruments.geocoded.map do |instrument|
+        {
+          lat: instrument.latitude,
+          lng: instrument.longitude
+        }
+    else
+      @instruments = Instrument.all
 
-    @markers = @instruments.geocoded.map do |instrument|
-      {
-        lat: instrument.latitude,
-        lng: instrument.longitude
-      }
+      @markers = @instruments.geocoded.map do |instrument|
+        {
+          lat: instrument.latitude,
+          lng: instrument.longitude
+        }
     end
   end
 
