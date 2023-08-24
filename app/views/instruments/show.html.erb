@@ -14,9 +14,9 @@
 <br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
 <% else %>
-  <%= link_to "Book this instrument! >", new_instrument_booking_path(@instrument.id) %>
+  <%= link_to "Book this instrument! >", new_instrument_booking_path(@instrument.id), class: "btn-main" %>
 <% end %>
-<br><br><%= link_to "Back to all instruments on offer >", instruments_path %>
+<br><br><br><%= link_to "Back to all instruments on offer >", instruments_path, class: "btn-main-back" %>
 <br>
 
 <p><strong>Reviews</strong></p>

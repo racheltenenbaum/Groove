@@ -1,0 +1,86 @@
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  background: white;
+}
+
+.card-instrument {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  height: 450px;
+  transition: all .2s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  h4 {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue';
+    font-stretch: wider;
+  }
+
+  p {
+    font-size: 20px;
+    overflow: hidden;
+    color: black;
+    line-height: 30px;
+  }
+
+  img {
+    margin: 0;
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: fit-content;
+  }
+
+}
+
+.t-none {
+  text-decoration: none;
+}
+
+.edit-booking {
+  text-decoration: none;
+  background-color: rgb(255, 146, 3);
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  color: white;
+
+  &:hover {
+    background-color: rgb(255, 196, 86);
+    color: black;
+  }
+}
+
+.delete-booking {
+  text-decoration: none;
+  background-color: rgb(184, 1, 1);
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  color: white;
+
+  &:hover {
+    background-color: rgb(255, 88, 88);
+    color: black;
+  }
+}
+
+.i-cards {
+  display: grid;
+  // grid-template-columns: 1fr 1fr 1fr 1fr;
+  background: transparent;
+  // background: linear-gradient(to bottom, #abe5e8, #abe5e8, white);
+}
