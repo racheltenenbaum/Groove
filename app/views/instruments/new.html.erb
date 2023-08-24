@@ -1,16 +1,17 @@
 <h1>ADD A NEW INSTRUMENT</h1>
-
-<%= simple_form_for(@instrument) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :available_from,
-               as: :string,
-              input_html: { data: { controller: "datepicker" } }%>
-  <%= f.input :description %>
-  <%= f.input :brand %>
-  <%= f.input :price %>
-  <%= f.input :city %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit %>
-<% end %>
-<br>
-<%= link_to "Back to all instruments >", instruments_path %>
+<div class="container">
+  <%= simple_form_for(@instrument) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :available_from,
+                as: :string,
+                input_html: { data: { controller: "datepicker" } }%>
+    <%= f.input :description %>
+    <%= f.input :brand %>
+    <%= f.input :price %>
+    <%= f.input :city %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
+<br><br>
+<%= link_to "Back to all instruments >", instruments_path, class: "btn-main-back" %>
