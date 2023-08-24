@@ -1,5 +1,6 @@
 class Instrument < ApplicationRecord
   belongs_to :user
+  has_many :reviews, dependent: :destroy
 
 
   # def self.owner_name
