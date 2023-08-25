@@ -1,5 +1,5 @@
 <%= link_to "< Back to all instruments ", instruments_path, id: "btn-main-back" %>
-<div class="mb-3" id="instrument-new">
+<div  class="instrument-new">
 <h1>ADD A NEW INSTRUMENT</h1>
   <%= simple_form_for(@instrument) do |f| %>
     <%= f.input :name %>
