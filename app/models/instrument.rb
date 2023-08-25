@@ -1,9 +1,6 @@
 class Instrument < ApplicationRecord
   belongs_to :user
 
-  # def self.owner_name
-  #   User.find(instrument.user_id).username
-  # end
 
   geocoded_by :city
   after_validation :geocode, if: :will_save_change_to_city?
@@ -25,4 +22,9 @@ class Instrument < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def self.owner_name
+    User.find(@instrument.user_id).username
+  end
+
 end

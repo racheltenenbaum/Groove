@@ -1,5 +1,4 @@
 <h1><%= @instrument.name %></h1>
-
 <h3><%= "Offered by #{User.find(@instrument.user_id).username}" %></h3>
 <%= "Description: #{@instrument.description}" %>
 <br><%= "Brand: #{@instrument.brand}" %>
@@ -9,7 +8,7 @@
 <br><br>
 
 
-<% if current_user.id == @instrument.user_id %>
+<% if current_user == @instrument.user_id %>
   <%= link_to "🖊️ Edit this instrument offer", edit_instrument_path %>
 <br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
@@ -24,4 +23,3 @@
   <br><%= "#{review.user.username}: #{review.comment}" %>
   <br><%= review.created_at %>
 <% end %>
-<br>

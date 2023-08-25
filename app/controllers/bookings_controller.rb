@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     # No need for app/views/bookings/update.html.erb
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   def destroy
