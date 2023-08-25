@@ -5,36 +5,30 @@
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @bookings.each do |booking| %>
       <% if booking.user_id == current_user.id && booking.end_date > Time.new %>
-        <div class="card-instrument">
+        <div class="card-instrument-dashboard">
           <%= cl_image_tag booking.instrument.photo.key, height: 300, width: 400, crop: :fill if booking.instrument.photo.attached? %>
           <h4><%= Instrument.find(booking.instrument_id).name %></h4>
           <p><%= "Start date: #{booking.start_date}" %>
           <br><%= "End date: #{booking.end_date}" %></p>
-          <%=link_to '🖊️ Edit booking', edit_booking_path(booking.id), class: "edit-booking"%>
-          <br><br><%=link_to '🗑️ Delete booking', booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-booking" %>
+          <%=link_to 'Edit booking', edit_booking_path(booking.id), class: "edit-booking"%>
+          <br><br><%=link_to 'Delete booking', booking_path(booking.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-booking" %>
         </div>
       <% end %>
     <% end %>
   </div>
 </div>
 
-
-
-
-
-
-
 <h2>Past Bookings</h2>
 <div class="container">
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @bookings.each do |booking| %>
       <% if booking.user_id == current_user.id && booking.end_date < Time.new%>
-        <div class="card-instrument">
+        <div class="card-instrument-dashboard">
           <%= cl_image_tag booking.instrument.photo.key, height: 300, width: 400, crop: :fill if booking.instrument.photo.attached? %>
           <h4><%= Instrument.find(booking.instrument_id).name %></h4>
           <p><%= "Start date: #{booking.start_date}" %>
           <br><%= "End date: #{booking.end_date}" %></p>
-          <%=link_to '🖊️ Add a review', new_instrument_review_path(booking.instrument_id), class: "edit-booking"%>
+          <br><%=link_to '🖊️ Add a review', new_instrument_review_path(booking.instrument_id), class: "btn-review"%>
         </div>
       <% end %>
     <% end %>
@@ -48,12 +42,12 @@
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @instruments.each do |instrument| %>
       <% if instrument.user_id == current_user.id %>
-        <div class="card-instrument">
+        <div class="card-instrument-dashboard">
           <%= cl_image_tag instrument.photo.key, height: 300, width: 400, crop: :fill if instrument.photo.attached? %>
           <h4><%= instrument.name %></h4>
           <%# <%= "Status: #{}" %>
-          <br><%=link_to '🖊️ Edit instrument offer', edit_instrument_path(instrument.id), class: "edit-booking"%>
-          <br><br><%=link_to '🗑️ Delete instrument offer', instrument_path(instrument.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-booking" %>
+          <br><%=link_to 'Edit offer', edit_instrument_path(instrument.id), class: "edit-booking"%>
+          <br><br><%=link_to 'Delete offer', instrument_path(instrument.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?"}, class: "delete-booking" %>
         </div>
       <% end %>
     <% end %>
