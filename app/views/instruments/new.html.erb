@@ -10,7 +10,9 @@
     <%= f.input :price %>
     <%= f.input :city %>
     <%= f.input :photo, as: :file %>
-    <%= link_to "< Back to all instruments ", instruments_path, id: "btn-main-back" %> <%= f.submit %>
+    <div  class=" d-flex flex-row flex-wrap col mb-3 justify-content-between", style="background-color: ">
+      <%= link_to "< Back to all instruments ", instruments_path, id: "btn-main-back" %> <%= f.submit %>
+    </div>
   <% end %>
 <br><br>
 </div>

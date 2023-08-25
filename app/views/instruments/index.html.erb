@@ -1,8 +1,8 @@
 <%= @owner %>
 <div class="container">
 <h1>INSTRUMENTS FOR RENT</h1>
-<div class="i-cards d-flex flex-row flex-wrap col mb-3">
-  <div class="row justify-content-center">
+<div class="i-cards d-flex flex-row flex-wrap col mb-3 justify-content-between">
+  <div class="row justify-content-between">
       <%= form_with url: instruments_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
@@ -11,7 +11,12 @@
           %>
         <%= submit_tag "Search", name: "", class: "btn-main" %>
       <% end %>
+
     </div>
+      <% if user_signed_in? %>
+  <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
+<% end %>
+
   </div>
   <div data-controller="toggle">
   <button id="showMapButton" data-action="click->toggle#fire">Show Map</button>
@@ -38,9 +43,6 @@
   </div>
 </div>
 <br>
-<% if user_signed_in? %>
-  <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
-<% end %>
 
 <%# style='width: 400px; height: 300px; %>
 
