@@ -85,3 +85,44 @@
   background: transparent;
   // background: linear-gradient(to bottom, #abe5e8, #abe5e8, white);
 }
+
+.card-info-instrument {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  transition: all .2s ease-in-out;
+  overflow: hidden;
+
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  h4 {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue';
+    font-stretch: wider;
+  }
+
+  p {
+    font-size: 18px;
+    overflow: hidden;
+    color: black;
+    line-height: 30px;
+  }
+
+  img {
+    margin: 0;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+}

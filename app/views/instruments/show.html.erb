@@ -1,25 +1,31 @@
 <h1><%= @instrument.name %></h1>
-<h3><%= "Offered by #{User.find(@instrument.user_id).username}" %></h3>
-<%= "Description: #{@instrument.description}" %>
-<br><%= "Brand: #{@instrument.brand}" %>
-<br><%= "Price: #{@instrument.price}" %>
-<br><%= "Available from: #{@instrument.available_from}" %>
-<%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill if @instrument.photo.attached?%>
-<br><br>
-
-
-<% if current_user == @instrument.user_id %>
-  <%= link_to "🖊️ Edit this instrument offer", edit_instrument_path %>
-<br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
-    data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
-<% else %>
-  <%= link_to "Book this instrument! >", new_instrument_booking_path(@instrument.id), class: "btn-main" %>
-<% end %>
+<div class="container">
+  <div class="card-info-instrument d-flex">
+    <div class="col-4 px-3">
+      <%= cl_image_tag @instrument.photo.key, height: 300, width: 400, crop: :fill if @instrument.photo.attached?%>
+    </div>
+    <div class="col-4 px-3">
+      <h3><%= "Offered by #{User.find(@instrument.user_id).username}" %></h3>
+      <br><p><%= "Brand: #{@instrument.brand.capitalize}" %>
+      <br><%= "Description: #{@instrument.description}" %>
+      <br><%= "Price: $#{@instrument.price}" %>
+      <br><%= "Available from: #{@instrument.available_from}" %></p>
+    </div>
+    <div class="col-4 px-3 d-flex flex-column">
+      <h3>Reviews</h3>
+      <% @instrument.reviews.each do |review| %>
+        <br><%= "#{review.user.username}: #{review.comment}" %>
+        <br><%= review.created_at %>
+      <% end %>
+      <% if current_user == @instrument.user_id %>
+        <%= link_to "🖊️ Edit this instrument offer", edit_instrument_path %>
+      <br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
+      <% else %>
+        <%= link_to "Book this instrument! >", new_instrument_booking_path(@instrument.id), class: "btn-main" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 <br><br><br><%= link_to "Back to all instruments on offer >", instruments_path, class: "btn-main-back" %>
 <br>
-
-<p><strong>Reviews</strong></p>
-<% @instrument.reviews.each do |review| %>
-  <br><%= "#{review.user.username}: #{review.comment}" %>
-  <br><%= review.created_at %>
-<% end %>
