@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import mapboxgl from 'mapbox-gl'
-{/* <script src="path-to-your-map-controller.js"></script> */}
 
+// Connects to data-controller="map"
 export default class extends Controller {
   static values = {
     apiKey: String,
@@ -12,13 +12,11 @@ export default class extends Controller {
     mapboxgl.accessToken = this.apiKeyValue
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: 'mapbox://styles/mapbox/streets-v12',
-      center: [0, 0],
-      zoom: 10,
+      style: 'mapbox://styles/mapbox/streets-v10',
     });
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-  }
+      }
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
@@ -38,21 +36,4 @@ export default class extends Controller {
       this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 5000  })
     }
 
-
-  //   openMapFullScreen() {
-  //     const mapSection = document.getElementById("map");
-  //     mapSection.style.position = "fixed";
-  //     mapSection.style.width = "100%";
-  //     mapSection.style.height = "100%";
-  //     mapSection.style.top = "0";
-  //     mapSection.style.left = "0";
-  //     mapSection.style.zIndex = "9999";
-
-  //     this.map = new mapboxgl.Map({
-  //       container: mapSection,
-  //       style: 'mapbox://styles/mapbox/streets-v12',
-  //       center: [0, 0],
-  //       zoom: 10,
-  //   });
-  // }
-}
+  }
