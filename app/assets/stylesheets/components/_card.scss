@@ -47,34 +47,73 @@
 
 }
 
+.card-instrument-dashboard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 12px;
+  padding: 20px;
+  width: 300px;
+  height: 450px;
+  overflow: hidden;
+
+  h4 {
+    font-size: 30px;
+    color: black;
+    margin-bottom: 10px;
+    font-family: 'Bebas Neue';
+    font-stretch: wider;
+  }
+
+  p {
+    font-size: 18px;
+    overflow: hidden;
+    color: black;
+    line-height: 30px;
+  }
+
+  img {
+    margin: 0;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+
+}
+
 .t-none {
   text-decoration: none;
 }
 
 .edit-booking {
   text-decoration: none;
-  background-color: #ff6600;
-  padding: 10px 15px;
-  margin-bottom: 20px;
-  border-radius: 30px;
+  background-color: #F09501;
   color: white;
+  padding: 13px 20px;
+  border-radius: 5px;
+  font-family: 'Bebas Neue';
+  font-size: 20px;
 
   &:hover {
-    background-color: #ff7d26;
+    background-color: #fbae31;
     color: black;
   }
 }
 
 .delete-booking {
   text-decoration: none;
-  background-color: rgb(184, 1, 1);
-  padding: 10px 15px;
+  background-color: rgb(135, 133, 133);
   margin-bottom: 20px;
-  border-radius: 30px;
   color: white;
+  padding: 13px 20px;
+  border-radius: 5px;
+  font-family: 'Bebas Neue';
+  font-size: 20px;
 
   &:hover {
-    background-color: rgb(255, 88, 88);
+    background-color: rgb(162, 158, 158);
     color: black;
   }
 }
