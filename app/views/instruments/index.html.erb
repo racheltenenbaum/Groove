@@ -32,13 +32,23 @@
   <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
 <% end %>
 
+<%# style='width: 400px; height: 300px; %>
 
-<div style='width: 400px; height: 300px;'
-  data-controller="map"
-  id='map'
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
-</div>
-<section id="content">
+<%# <section id="content">
   <%= button_tag "Show Map", id: "showMapButton", class: "btn btn-primary" %>
-</section>
+<%# </section> %>
+<script src="path-to-your-map-controller.js"></script>
+<div class="drawer" id="drawer">
+  <div class="drawer-content">
+    <div style='width: 98%; height: 100vh'
+        data-controller="map"
+        id='map'
+        class="full-screen-map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+    </div>
+  </div>
+</div>
+
+<button id="showMapButton">Show Map</button>
+<button id="showListButton">Show List</button>
