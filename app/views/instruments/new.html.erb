@@ -1,5 +1,6 @@
+<%= link_to "< Back to all instruments ", instruments_path, id: "btn-main-back" %>
+<div  class="instrument-new">
 <h1>ADD A NEW INSTRUMENT</h1>
-<div class="container">
   <%= simple_form_for(@instrument) do |f| %>
     <%= f.input :name %>
     <%= f.input :available_from,
@@ -12,6 +13,5 @@
     <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
-</div>
 <br><br>
-<%= link_to "Back to all instruments >", instruments_path, class: "btn-main-back" %>
+</div>
