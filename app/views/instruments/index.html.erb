@@ -14,14 +14,16 @@
       <% end %>
     </div>
   </div>
-  <div data-controller="toggle">
-  <button id="showMapButton" data-action="click->toggle#fire">Show Map</button>
-    <div style='width: 1400px; height: 100vh'
-        data-controller="map"
-        class="full-screen-map"
-        data-toggle-target="mapButton"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+  <div data-controller="toggle" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>" data-map-target="mapButton">
+  <button id="showMapButton" data-action="click->toggle#fire" data-action="click->map#resizeMap">Show Map</button>
+    <div data-toggle-target="mapButton" class="d-none" style="width: 1400px; height: 100vh">
+      <div style='width: 1400px; height: 100vh'
+          data-controller="map"
+          class="full-screen-map"
+          data-map-target="mapButton"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
+      </div>
     </div>
 </div>
 

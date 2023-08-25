@@ -3,20 +3,39 @@ import mapboxgl from 'mapbox-gl'
 
 // Connects to data-controller="map"
 export default class extends Controller {
+  static targets = ["mapButton"]
+
   static values = {
     apiKey: String,
     markers: Array
   }
 
+  // resizeMap() {
+  //   console.log("firing")
+  //   this.map.resize();
+  //   console.log("firing")
+
+  // }
+
+
+
   connect() {
+    console.log(this.mapButtonTarget)
+    console.log("hello from map controller")
+
     mapboxgl.accessToken = this.apiKeyValue
+
     this.map = new mapboxgl.Map({
       container: this.element,
       style: 'mapbox://styles/mapbox/streets-v10',
     });
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
-      }
+      this.map.resize()
+      console.log(document.getElementsByClassName('mapboxgl-canvas')[0])
+      this.#addMarkersToMap()
+      this.#fitMapToMarkers()
+    }
+
+
 
     #addMarkersToMap() {
       this.markersValue.forEach((marker) => {
