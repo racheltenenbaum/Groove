@@ -6,5 +6,6 @@ class PagesController < ApplicationController
   def dashboard
     @bookings = Booking.all
     @instruments = Instrument.all
+    # @instrument = Instrument.find()
   end
 end
