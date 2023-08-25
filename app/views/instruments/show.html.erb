@@ -19,9 +19,7 @@
 <br>
 
 <p><strong>Reviews</strong></p>
-<ul class="list-group">
-  <% @instrument.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.comment %></li>
-  <% end %>
-</ul>
-<br>
+<% @instrument.reviews.each do |review| %>
+  <br><%= "#{review.user.username}: #{review.comment}" %>
+  <br><%= review.created_at %>
+<% end %>

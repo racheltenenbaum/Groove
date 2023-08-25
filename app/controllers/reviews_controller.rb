@@ -17,10 +17,9 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.instrument_id = @instrument.id
     @review.user_id = current_user.id
-    raise
     if @review.save
       # flash[:notice] = 'Review was successfully created.'
-      redirect_to instrument_reviews_path
+      redirect_to instrument_path(@instrument.id)
     else
       render :reviews, status: :unprocessable_entity
     end
