@@ -31,6 +31,7 @@
   }
 }
 
+
 input {
   text-decoration: none;
   background-color: rgb(135, 133, 133);
@@ -39,4 +40,12 @@ input {
   border-radius: 5px;
   font-family: 'Bebas Neue';
   font-size: 20px;
+
+.btn-instrument-book {
+
+  &:hover {
+    transform: scale(1.03);
+    background-color: #FFC0E6;
+    color: black;
+  }
 }

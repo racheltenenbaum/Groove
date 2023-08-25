@@ -22,9 +22,4 @@ class Instrument < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
-
-  def self.owner_name
-    User.find(@instrument.user_id).username
-  end
-
 end
