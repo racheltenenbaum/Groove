@@ -1,6 +1,6 @@
+<%= @owner %>
 <div class="container">
 <h1>INSTRUMENTS FOR RENT</h1>
-<%= @owner %>
 <div class="i-cards d-flex flex-row flex-wrap col mb-3">
   <div class="row justify-content-center">
       <%= form_with url: instruments_path, method: :get, class: "d-flex" do %>
@@ -23,7 +23,6 @@
         data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
     </div>
 </div>
-
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @instruments.each do |instrument| %>
       <%= link_to instrument_path(instrument.id), class: "t-none" do %>
@@ -42,3 +41,9 @@
 <% if user_signed_in? %>
   <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
 <% end %>
+
+<%# style='width: 400px; height: 300px; %>
+
+<%# <section id="content">
+  <%= button_tag "Show Map", id: "showMapButton", class: "btn btn-primary" %>
+<%# </section> %>
