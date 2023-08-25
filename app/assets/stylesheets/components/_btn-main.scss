@@ -14,7 +14,7 @@
   }
 }
 
-.btn-main-back {
+#btn-main-back {
   text-decoration: none;
   background-color: rgb(135, 133, 133);
   color: white;
@@ -22,7 +22,8 @@
   border-radius: 5px;
   font-family: 'Bebas Neue';
   font-size: 20px;
-  margin: 20px;
+  margin-left: 26px;
+
 
   &:hover {
     background-color: rgb(162, 158, 158);
@@ -30,19 +31,17 @@
   }
 }
 
-.btn-instrument-book {
+
+input {
   text-decoration: none;
-  background-color: #FD8DD0;
+  background-color: rgb(135, 133, 133);
   color: white;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-radius: 5px;
   font-family: 'Bebas Neue';
   font-size: 20px;
-  margin: 20px;
-  transition: all .2s ease-in-out;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+
+.btn-instrument-book {
 
   &:hover {
     transform: scale(1.03);
