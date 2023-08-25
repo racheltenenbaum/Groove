@@ -28,6 +28,8 @@ export default class extends Controller {
     this.map = new mapboxgl.Map({
       container: this.element,
       style: 'mapbox://styles/mapbox/streets-v10',
+      center: [-0.12765, 51.5073359],
+      zoom: 9
     });
       this.map.resize()
       console.log(document.getElementsByClassName('mapboxgl-canvas')[0])

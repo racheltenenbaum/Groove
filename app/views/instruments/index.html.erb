@@ -1,32 +1,29 @@
-<h1>INSTRUMENTS FOR RENT</h1>
 <%= @owner %>
 <div class="container">
+<h1>INSTRUMENTS FOR RENT</h1>
 <div class="i-cards d-flex flex-row flex-wrap col mb-3">
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
+  <div class="row justify-content-center" style="width: 600px;">
       <%= form_with url: instruments_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               placeholder: "Type a keyword"
           %>
-        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+        <%= submit_tag "Search", name: "", class: "btn-main" %>
       <% end %>
     </div>
   </div>
-  <div data-controller="toggle" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>" data-map-target="mapButton">
-  <button id="showMapButton" data-action="click->toggle#fire" data-action="click->map#resizeMap">Show Map</button>
-    <div data-toggle-target="mapButton" class="d-none" style="width: 1400px; height: 100vh">
-      <div style='width: 1400px; height: 100vh'
-          data-controller="map"
-          class="full-screen-map"
-          data-map-target="mapButton"
-          data-map-markers-value="<%= @markers.to_json %>"
-          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
-      </div>
+
+  <div data-controller="toggle">
+  <button id="showMapButton" data-action="click->toggle#fire">Show Map</button>
+    <div style='width: 1000px; height: 100vh'
+        data-controller="map"
+        class="full-screen-map"
+        data-toggle-target="mapButton"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY']%>">
     </div>
 </div>
-
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @instruments.each do |instrument| %>
       <%= link_to instrument_path(instrument.id), class: "t-none" do %>
@@ -40,8 +37,14 @@
     <% end %>
     <% end %>
   </div>
-</div>
-<br>
 <% if user_signed_in? %>
   <%= link_to "Add new instrument >", new_instrument_path, class: "btn-main" %>
 <% end %>
+</div>
+<br>
+
+<%# style='width: 400px; height: 300px; %>
+
+<%# <section id="content">
+  <%= button_tag "Show Map", id: "showMapButton", class: "btn btn-primary" %>
+<%# </section> %>

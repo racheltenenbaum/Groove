@@ -1,7 +1,7 @@
-<h1>My Dashboard</h1>
-<h2>Active Bookings</h2>
-<%# List all my bookings: essentially take the info from bookings index page %>
 <div class="container">
+  <h1>My Dashboard</h1>
+  <h2>Active Bookings</h2>
+<%# List all my bookings: essentially take the info from bookings index page %>
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @bookings.each do |booking| %>
       <% if booking.user_id == current_user.id && booking.end_date > Time.new %>
@@ -18,8 +18,8 @@
   </div>
 </div>
 
-<h2>Past Bookings</h2>
 <div class="container">
+  <h2>Past Bookings</h2>
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @bookings.each do |booking| %>
       <% if booking.user_id == current_user.id && booking.end_date < Time.new%>
@@ -35,10 +35,10 @@
   </div>
 </div>
 
-<br><h2>My Instruments</h2>
+<div class="container">
+  <br><h2>My Instruments</h2>
 <%# each instrument should have a preview of status rented / available %>
 <%# each instrument should have a toggle to display all the instrument's bookings %>
-<div class="container">
   <div class="i-cards d-flex flex-row flex-wrap">
     <% @instruments.each do |instrument| %>
       <% if instrument.user_id == current_user.id %>
