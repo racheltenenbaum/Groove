@@ -20,7 +20,7 @@
         <% end %>
       </div>
       <div class=>
-        <% if current_user == @instrument.user_id %>
+        <% if current_user == @instrument.user %>
           <%= link_to "🖊️ Edit this instrument offer", edit_instrument_path %>
         <br><%= link_to "🗑️ Delete this instrument offer", instrument_path(@instrument.id),
             data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this offer?"} %>
